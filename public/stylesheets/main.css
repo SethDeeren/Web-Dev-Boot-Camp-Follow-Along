@@ -1,0 +1,27 @@
+body {
+	background-color: #F9F7EC;
+}
+
+
+
+.thumbnail img {
+	width: 100%;
+	
+}
+
+.thumbnail {
+	padding: 0;
+	background-color: #E5F1E5;
+}
+
+.thumbnail .caption-full {
+	padding: 9px;
+}
+
+#navbar {
+	background-color: #E5F1E5;
+}
+
+.delete-form {
+	display: inline;
+}
