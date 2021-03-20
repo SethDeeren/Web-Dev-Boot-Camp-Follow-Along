@@ -7,6 +7,7 @@ const middlewareObj = {
 
 	checkCampgroundOwnership: (req, res, next)=>{
 		// is user logged in?
+			console.log("==============>>>>>>>>>>>>>>>>>>>>>>>>>>>> req is ", req)
 			if(req.isAuthenticated()){
 
 				Campground.findById(req.params.id, (err,foundCampground)=>{

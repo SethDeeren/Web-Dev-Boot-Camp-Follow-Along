@@ -1,5 +1,5 @@
 body {
-	background-color: #F9F7EC;
+	/* background-color: #F9F7EC; */
 }
 
 
@@ -11,7 +11,7 @@ body {
 
 .thumbnail {
 	padding: 0;
-	background-color: #E5F1E5;
+	/* background-color: #E5F1E5; */
 }
 
 .thumbnail .caption-full {
@@ -19,7 +19,7 @@ body {
 }
 
 #navbar {
-	background-color: #E5F1E5;
+	/* background-color: #E5F1E5; */
 }
 
 .delete-form {

@@ -11,6 +11,8 @@ const Comment	= require('./models/comment');
 const User = require('./models/user');
 const seedDB = require('./seeds');
 
+require('dotenv').config();
+
 const commentRoutes		= require('./routes/comments'),
 	  campgroundRoutes	= require('./routes/campgrounds'),
 	  authRoutes		= require('./routes/index');
@@ -37,14 +39,22 @@ app.use(flash());
 //seedDB();
 
 
+
+
 // PASSPORT CONFIGURATION
+// simple does not use database to store user in session simple only uses run time memory
+// if we wanted to use database saveUnitialized:true and then we would need a session store and a cookie to send to the client
+// this way still uses a cookie and send to client but the express session info does not get persistantly save if we refresh we lose the session
 app.use(require('express-session')({
 	secret:"This is a secret phrase can be any thing",
 	resave: false,
 	saveUninitialized: false
 }));
+// wires ups passport to the express server
 app.use(passport.initialize());
+// middleware session to serialize and deserialize the user
 app.use(passport.session());
+// on the user schema we plugged in passport methods to user for authentication
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -56,6 +66,7 @@ app.use((req, res, next)=>{
 	res.locals.success = req.flash("success");
 	next();
 });
+
 
 app.use(authRoutes);
 app.use(campgroundRoutes);
